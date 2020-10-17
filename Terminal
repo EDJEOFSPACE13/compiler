@@ -1,0 +1,40 @@
+console.log("================================================================")
+console.log("|                                                              |")
+console.log("|               KA.OS                                          |")
+console.log("|                     Booting...                               |")
+console.log("|                                                              |")
+console.log("|                                                              |")
+console.log("|                                                              |")
+console.log("================================================================")
+function start(){
+var count = []
+var condition1
+var condition2
+while(true){
+	input = readline("△ ")
+	tokens = input.split(" ")
+	for(i=0;i<tokens.length;i++){
+		if(tokens[i]=="print"){console.log(tokens[i+1])}
+		if(tokens[i]=="+"){console.log((tokens[i-1]*1)+(tokens[i+1]*1))}
+		if(tokens[i]=="-"){console.log((tokens[i-1]*1)-(tokens[i+1]*1))}
+		if(tokens[i]=="/"){console.log((tokens[i-1]*1)/(tokens[i+1]*1))}
+		if(tokens[i]=="*"){console.log((tokens[i-1]*1)*(tokens[i+1]*1))}
+		if(tokens[i]=="clear"){console.clear()}
+		if(tokens[i]=="var"){count.push(tokens[i+1]);count.push(tokens[i+2])}
+		for(o=0;o<count.length;o+=2){		
+			if(tokens[i]==count[o]){console.log(count[o+1])}
+		}
+		if(tokens[i]=="if"){condition1=(tokens[i+1]);condition2=tokens[i+2];if(condition1==condition2){if(tokens[i+4]=="print"){console.log(tokens[i+5])}
+		if(tokens[i+4]=="+"){console.log((tokens[i-3]*1)+(tokens[i+7]*1))}
+		if(tokens[i+4]=="-"){console.log((tokens[i-3]*1)-(tokens[i+7]*1))}
+		if(tokens[i+4]=="/"){console.log((tokens[i-3]*1)/(tokens[i+7]*1))}
+		if(tokens[i+4]=="*"){console.log((tokens[i-3]*1)*(tokens[i+7]*1))}
+		if(tokens[i+4]=="clear"){console.clear()}
+		if(tokens[i+4]=="var"){count.push(tokens[i+5]);count.push(tokens[i+7])}
+		for(o=0;o<count.length;o+=2){		
+			if(tokens[i+4]==count[o]){console.log(count[o+5])}
+		}}}
+	}
+}
+}
+setTimeout(function(){console.clear();console.log("WELCOM TO KA.OS");start()}, 3000)
